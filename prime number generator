@@ -23,14 +23,16 @@ def is_factor(factors_):
             for each_element_ in list_factors:
                 if each_element_ < each_element:
                     modulo = each_element % each_element_
-                    prime_list_checker.append(modulo)
+                    if modulo == 0:
+                        prime_list_checker.append(modulo)
+                        break
                 else:
+                    prime_lists.append(each_element)
                     break
 
-            if 0 not in prime_list_checker:
-                prime_lists.append(each_element)
-                print(each_element)
+            print(each_element)
 
     print(prime_lists)
+    print(len(prime_lists))
 
 is_factor(100000)
