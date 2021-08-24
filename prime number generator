@@ -1,0 +1,36 @@
+def prime_number(range_):
+    prime_counter = 0
+    list_of_primes = []
+    min_range = 1
+    while prime_counter < range_:
+        #create list of factors
+        list_of_primes.append(prime_counter+1)
+        prime_counter += 1
+
+    list_of_primes.pop(0)
+    return list_of_primes
+
+    #print(list_of_primes)
+
+def is_factor(factors_):
+
+    list_factors=prime_number(factors_)
+    #print(list_factors)
+    prime_lists=[]
+
+    for each_element in list_factors:
+            prime_list_checker = []
+            for each_element_ in list_factors:
+                if each_element_ < each_element:
+                    modulo = each_element % each_element_
+                    prime_list_checker.append(modulo)
+                else:
+                    break
+
+            if 0 not in prime_list_checker:
+                prime_lists.append(each_element)
+                print(each_element)
+
+    print(prime_lists)
+
+is_factor(100000)
