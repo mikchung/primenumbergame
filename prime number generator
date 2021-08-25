@@ -35,4 +35,4 @@ def is_factor(factors_):
     print(prime_lists)
     print(len(prime_lists))
 
-is_factor(100000)
+is_factor(1000000)
