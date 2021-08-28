@@ -1,0 +1,72 @@
+def prime_number(range_):
+    prime_counter = 0
+    list_of_primes = []
+    min_range = 1
+    while prime_counter < range_:
+        #create list of factors
+        list_of_primes.append(prime_counter+1)
+        prime_counter += 1
+
+    list_of_primes.pop(0)
+    return list_of_primes
+
+    #print(list_of_primes)
+
+def is_factor(factors_):
+
+    list_factors=prime_number(factors_)
+    #print(list_factors)
+    prime_lists=[]
+
+    for each_element in list_factors:
+            prime_list_checker = []
+            for each_element_ in list_factors:
+                if each_element_ < each_element:
+                    modulo = each_element % each_element_
+                    if modulo == 0:
+                        prime_list_checker.append(modulo)
+                        break
+                else:
+                    prime_lists.append(each_element)
+                    break
+
+            print(each_element)
+
+    print(prime_lists)
+    print(len(prime_lists))
+    return prime_lists
+
+def twin_primes(x):
+    prime_list=is_factor(x)
+    prime_list_length= len(prime_list)
+    prime_list.pop(0)
+    twin_primes_list=[]
+    array_element=0
+    while array_element < prime_list_length:
+        primes_list_to_add = []
+        try:
+            difference = prime_list[array_element+1]-prime_list[array_element]
+            #print('('+str(prime_list[array_element])+', '+str(prime_list[array_element+1])+')'+':'+str(difference))
+            list_to_add=[]
+            primes_difference=[]
+
+            list_entry=(str(prime_list[array_element])+', '+str(prime_list[array_element+1]))
+            primes_list_to_add.append(list_entry)
+            primes_list_to_add.append(difference)
+            twin_primes_list.append(primes_list_to_add)
+
+            array_element += 1
+        except IndexError:
+            break
+    #print(twin_primes_list)
+
+    #list of twin primes
+    twin_primes_counter=[]
+    for each_element in twin_primes_list:
+        if each_element[1]==2:
+            twin_primes_counter.append(each_element)
+
+    print(twin_primes_counter)
+    print('There are '+str(len(twin_primes_counter))+' twin primes')
+
+twin_primes(100000)
